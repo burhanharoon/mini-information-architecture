@@ -1,13 +1,12 @@
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import students from './data/students.js'
-// import users from './data/users.js'
-// import products from './data/products.js'
 import Student from './models/studentModel.js'
 import Teacher from './models/teacherModel.js'
-import SubjectAssignment from './models/subjectAssignment.js'
+import SubjectAssignment from './models/assignmentModel.js'
 import connectDB from './config/db.js'
+import students from './data/students.js'
 import teachers from './data/teachers.js'
+import assignments from './data/assignments.js'
 
 dotenv.config()
 
@@ -21,6 +20,7 @@ const importData = async () => {
 
         await Student.insertMany(students)
         await Teacher.insertMany(teachers)
+        await SubjectAssignment.insertMany(assignments)
 
         console.log('Data Imported!')
         process.exit()

@@ -2,9 +2,9 @@ import express, { json } from 'express'
 import dotenv from "dotenv"
 import connectDB from './config/db.js'
 import bodyparser from 'body-parser'
-import Student from "./models/studentModel.js";
 import studentRoutes from "./routes/studentRoutes.js"
 import teacherRoutes from "./routes/teacherRoutes.js"
+import assignmentRoutes from "./routes/assignmentRoutes.js"
 
 
 dotenv.config();
@@ -19,6 +19,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 app.use('/api/student', studentRoutes)
 app.use('/api/teacher', teacherRoutes)
+app.use('/api/assignment', assignmentRoutes)
 app.get('/', (req, res) => {
     res.send("Api is running dude damn")
 })

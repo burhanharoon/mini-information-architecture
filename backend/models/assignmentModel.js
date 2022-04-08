@@ -8,7 +8,6 @@ const subjectAssignmentSchema = mongoose.Schema(
         },
         teacherName: {
             type: String,
-            required: true
         },
         subject: {
             type: String,

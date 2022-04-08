@@ -69,7 +69,7 @@ const teachers = [
         name: "teacher12",
         email: "zakiteacher@zakiteacher.com",
         firstChoice: "physics",
-        secondChoice: "chemistry",
+        secondChoice: "biology",
     },
 ]
 

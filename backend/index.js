@@ -2,6 +2,8 @@ import express, { json } from 'express'
 import dotenv from "dotenv"
 import connectDB from './config/db.js'
 import bodyparser from 'body-parser'
+import Student from "./models/studentModel.js";
+import studentRoutes from "./routes/studentRoutes.js"
 
 dotenv.config();
 
@@ -12,12 +14,12 @@ const app = express()
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
+
+app.use('/api/student', studentRoutes)
 app.get('/', (req, res) => {
     res.send("Api is running dude damn")
 })
 
-// app.use('/api/products', productRoutes)
-// app.use('/api/users', userRoutes)
 
 const PORT = process.env.PORT || 5000
 

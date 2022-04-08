@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import students from './data/students.js'
 // import users from './data/users.js'
 // import products from './data/products.js'
 import Student from './models/studentModel.js'
@@ -18,7 +19,7 @@ const importData = async () => {
         await SubjectAssignment.deleteMany()
 
         // const createdUsers = await User.insertMany(users)
-        // await Product.insertMany(sampleProducts)
+        await Student.insertMany(students)
 
         console.log('Data Imported!')
         process.exit()

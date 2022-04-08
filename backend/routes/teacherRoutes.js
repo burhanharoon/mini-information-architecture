@@ -4,20 +4,39 @@ const router = express.Router()
 
 const sortDesending = object => Object.keys(object).sort(function (a, b) { return object[b] - object[a] })
 
-router.get('/leastFirstChoice', async (req, res) => {
+router.get('/leastFirstChoiceSubject', async (req, res) => {
     const teachers = await Teacher.find({})
     let subjectChoicesCount = {}
 
     teachers.forEach(teacher => {
         if (subjectChoicesCount.hasOwnProperty(teacher.firstChoice)) {
-            subjectChoicesCount = { ...subjectChoicesCount, [teacher.firstChoice]: { firstChoice: subjectChoicesCount[teacher.firstChoice].firstChoice + 1 } }
+            subjectChoicesCount[teacher.firstChoice] += 1
         }
         else {
-            subjectChoicesCount = { ...subjectChoicesCount, [teacher.firstChoice]: { firstChoice: 1 } }
+            subjectChoicesCount[teacher.firstChoice] = 1
         }
 
     })
     res.send(subjectChoicesCount)
+})
+
+router.get('/search/:name', async (req, res) => {
+    let name = req.params.name
+    const teachers = await Teacher.find({ name })
+
+    res.send(teachers)
+})
+
+router.get('/mathSecondSubject', async (req, res) => {
+
+    let mathSubjectTeachers = []
+    const teachers = await Teacher.find({})
+    teachers.forEach(teacher => {
+        if (teacher.secondChoice === 'math') {
+            mathSubjectTeachers.push(teacher.name)
+        }
+    })
+    res.send(mathSubjectTeachers)
 })
 
 router.get("/", (req, res) => {

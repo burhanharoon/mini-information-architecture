@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Home from './Components/Home';
+import Menu from './Components/Menu';
+import Navbar from './Components/Navbar';
+import CountEachSubject from './Components/CountEachSubject';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className='flex h-full'>
+            <Menu />
+            <Routes>
+              <Route exact path='/' element={<Home />}></Route>
+              <Route exact path='/countOfEachSubject' element={<CountEachSubject />}></Route>
+            </Routes>
+          </div>
+
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;

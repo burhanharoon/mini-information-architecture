@@ -49,6 +49,11 @@ router.get('/poorGrades', async (req, res) => {
     res.send(poorGrades)
 })
 
+router.get("/allStudents", async (req, res) => {
+    const students = await Student.find({})
+    res.send(students)
+})
+
 router.get("/", (req, res) => {
     res.send("Sending Student Routes")
 })

@@ -37,15 +37,6 @@ const Home = () => {
                                 </tr>
                             )
                         }
-                        {/* {students.map(({ subject, grade }, index) =>
-                            <tr key={_id} className="">
-                                <th className='font-medium'>{index + 1}</th>
-                                <th className='font-medium'>{name}</th>
-                                <th className='font-medium'>{email}</th>
-                                <th className='font-medium capitalize'>{subject}</th>
-                                <th className='font-medium'>{grade}</th>
-                            </tr>
-                        )} */}
                     </tbody>
                 </table>
             </div>

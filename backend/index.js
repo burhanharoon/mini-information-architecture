@@ -4,6 +4,8 @@ import connectDB from './config/db.js'
 import bodyparser from 'body-parser'
 import Student from "./models/studentModel.js";
 import studentRoutes from "./routes/studentRoutes.js"
+import teacherRoutes from "./routes/teacherRoutes.js"
+
 
 dotenv.config();
 
@@ -16,6 +18,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 
 app.use('/api/student', studentRoutes)
+app.use('/api/teacher', teacherRoutes)
 app.get('/', (req, res) => {
     res.send("Api is running dude damn")
 })

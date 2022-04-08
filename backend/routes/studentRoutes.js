@@ -34,6 +34,21 @@ router.get('/popularSubjects', async (req, res) => {
     res.send(popularSubjects.slice(0, 3))
 })
 
+router.get('/poorGrades', async (req, res) => {
+    const students = await Student.find({})
+    let poorGrades = []
+    students.forEach(student => {
+        if (student.grade == 'D' || student.grade == 'F') {
+            let temp = {
+                name: student.name,
+                grade: student.grade
+            }
+            poorGrades = [...poorGrades, temp]
+        }
+    })
+    res.send(poorGrades)
+})
+
 router.get("/", (req, res) => {
     res.send("Sending Student Routes")
 })

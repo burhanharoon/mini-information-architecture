@@ -7,6 +7,7 @@ import Student from './models/studentModel.js'
 import Teacher from './models/teacherModel.js'
 import SubjectAssignment from './models/subjectAssignment.js'
 import connectDB from './config/db.js'
+import teachers from './data/teachers.js'
 
 dotenv.config()
 
@@ -18,8 +19,8 @@ const importData = async () => {
         await Teacher.deleteMany()
         await SubjectAssignment.deleteMany()
 
-        // const createdUsers = await User.insertMany(users)
         await Student.insertMany(students)
+        await Teacher.insertMany(teachers)
 
         console.log('Data Imported!')
         process.exit()

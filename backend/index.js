@@ -6,7 +6,6 @@ import studentRoutes from "./routes/studentRoutes.js"
 import teacherRoutes from "./routes/teacherRoutes.js"
 import assignmentRoutes from "./routes/assignmentRoutes.js"
 
-
 dotenv.config();
 
 connectDB();
@@ -21,7 +20,7 @@ app.use('/api/student', studentRoutes)
 app.use('/api/teacher', teacherRoutes)
 app.use('/api/assignment', assignmentRoutes)
 app.get('/', (req, res) => {
-    res.send("Api is running dude damn")
+    res.send("Api is running successfully")
 })
 
 

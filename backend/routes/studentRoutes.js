@@ -54,6 +54,23 @@ router.get("/allStudents", async (req, res) => {
     res.send(students)
 })
 
+router.post('/addStudent', async (req, res) => {
+
+    const { name, email, subject, grade } = req.body
+    const studentExists = await Student.findOne({ email })
+
+    if (studentExists) {
+        res.send({ result: false })
+    } else {
+        const student = await Student.create({
+            name, email, subject, grade
+        })
+        if (student) {
+            res.send({ result: true })
+        }
+    }
+})
+
 router.get("/", (req, res) => {
     res.send("Sending Student Routes")
 })

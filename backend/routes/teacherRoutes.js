@@ -56,6 +56,10 @@ router.post('/addTeacher', async (req, res) => {
     }
 })
 
+router.get("/allTeachers", async (req, res) => {
+    const teachers = await Teacher.find({})
+    res.send(teachers)
+})
 
 router.get("/", (req, res) => {
     res.send("Sending Teacher Routes")

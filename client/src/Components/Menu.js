@@ -6,7 +6,7 @@ const Menu = () => {
         <div className='w-full p-6 bg-[#f2f2f2e6] text-left flex flex-col gap-2 h-full'>
 
             <Link to="/">
-                <h1 className='text-3xl p-2  font-bold text-[#570df8]'>Database</h1>
+                <h1 className='text-3xl p-2 hover:bg-gray-300 rounded-xl w-min font-bold text-[#570df8]'>Database</h1>
             </Link>
 
             <div className='flex flex-col gap-0'>

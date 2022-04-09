@@ -21,7 +21,7 @@ const Home = () => {
                 <div className='text-xl'>Based on number of students,</div>
                 <div className='text-3xl font-semibold'>Here're the top three EE Subjects</div>
             </div>
-            <table className="table table-zebra m-auto w-96 ">
+            <table className="table table-zebra mx-auto w-96 ">
                 <thead>
                     <tr>
                         <th>Ranking</th>

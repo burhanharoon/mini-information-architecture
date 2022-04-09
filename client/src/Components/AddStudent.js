@@ -31,7 +31,7 @@ const Home = () => {
     }
 
     return (
-        <form onSubmit={(e) => { addNewStudent(e) }} className='p-8 px-16 flex flex-col items-center gap-2 justify-center w-full h-full'>
+        <form onSubmit={(e) => { addNewStudent(e) }} className='p-8 px-16 flex flex-col items-center gap-2 w-full h-full'>
 
             {success &&
                 <div className="alert alert-success shadow-lg w-[30rem] ">

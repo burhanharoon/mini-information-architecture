@@ -13,7 +13,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div className='p-8 px-16  flex flex-col items-start gap-12 w-full h-full '>
+        <div className='p-8 px-16  flex flex-col items-start gap-12 w-full '>
             <div className='font-bold text-3xl text-[#051730]'>Here's the list of all Students.</div>
 
             <div className="w-full">

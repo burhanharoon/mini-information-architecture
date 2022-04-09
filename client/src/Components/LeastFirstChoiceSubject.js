@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <div className='p-8 px-16 text-left flex flex-col items-start gap-12 w-full h-full '>
             <div className='font-bold text-3xl text-[#051730]'>Here's the list of subjects with the fewest teachers as their 1st Choice.</div>
-            <table className="table table-zebra m-auto w-96 ">
+            <table className="table table-zebra mx-auto w-96 ">
                 <thead>
                     <tr>
                         <th></th>

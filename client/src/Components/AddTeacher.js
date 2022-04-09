@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 
@@ -30,7 +30,7 @@ const Home = () => {
     }
 
     return (
-        <form onSubmit={(e) => { addNewTeacher(e) }} className='p-8 px-16 flex flex-col items-center gap-2 justify-center w-full h-full'>
+        <form onSubmit={(e) => { addNewTeacher(e) }} className='p-8 px-16 flex flex-col items-center gap-2 w-full h-full'>
             {success &&
                 <div className="alert alert-success shadow-lg w-[30rem] ">
                     <div>

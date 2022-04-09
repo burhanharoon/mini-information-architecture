@@ -19,7 +19,7 @@ const Home = () => {
                 <button type='submit' className="btn btn-outline btn-primary">Search</button>
             </form>
             {students.length > 0 ?
-                <table className="table table-zebra m-auto w-96 ">
+                <table className="table table-zebra mx-auto w-96 ">
                     <thead>
                         <tr>
                             <th></th>

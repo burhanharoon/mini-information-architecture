@@ -12,7 +12,6 @@ const Home = () => {
         getStudents()
     }, [])
 
-    console.log(students);
 
     return (
         <div className='p-8 px-16  flex flex-col items-start gap-12 w-full h-full '>

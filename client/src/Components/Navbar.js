@@ -1,12 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <div className='flex items-center justify-between p-4 px-8 font-bold shadow-md'>
-            <h1 className='text-xl'>Database</h1>
+            <Link to="/">
+                <h1 className='text-xl'>Mini Database</h1>
+            </Link>
             <div className='flex items-center gap-2'>
-                <button className='p-2 px-4 rounded-full text-white shadow font-bold bg-amber-300'>Add Student</button>
-                <button className='p-2 px-4 rounded-full text-white shadow font-bold bg-sky-400'>Add Teacher</button>
+                <Link to="/addStudent">
+                    <button className='p-2 px-4 rounded-full text-white shadow font-bold bg-amber-300'>Add Student</button>
+                </Link>
+                <Link to="/addTeacher">
+                    <button className='p-2 px-4 rounded-full text-white shadow font-bold bg-sky-400'>Add Teacher</button>
+                </Link>
             </div>
         </div>
     )

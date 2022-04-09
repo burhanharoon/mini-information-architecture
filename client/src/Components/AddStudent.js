@@ -1,0 +1,75 @@
+import React, { useState } from 'react'
+import axios from 'axios'
+
+
+const Home = () => {
+    const [result, setResult] = useState({})
+    const [loading, setLoading] = useState(false)
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [subject, setSubject] = useState("")
+    const [grade, setGrade] = useState("")
+    const [success, setSuccess] = useState(false)
+
+    const addNewStudent = async (e) => {
+        e.preventDefault()
+        setLoading(true)
+        let teahcerData = {
+            name,
+            email,
+            subject,
+            grade
+        }
+        const { data } = await axios.post('/api/student/addStudent', teahcerData)
+        // console.log(data);
+        setLoading(false)
+        setResult(data)
+        setTimeout(() => {
+            setSuccess(false)
+        }, 2000);
+        setSuccess(true)
+    }
+
+    return (
+        <form onSubmit={(e) => { addNewStudent(e) }} className='p-8 px-16 flex flex-col items-center gap-2 justify-center w-full h-full'>
+
+            {success &&
+                <div className="alert alert-success shadow-lg w-[30rem] ">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="strokeCurrent flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLnejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span>The student has been successfully added!</span>
+                    </div>
+                </div>
+            }
+            <div className="form-control w-full max-w-xs">
+                <label className="label">
+                    <span className="label-text font-medium text-lg">Student Name</span>
+                </label>
+                <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} placeholder="name" className="input input-bordered w-full max-w-xs" />
+
+            </div>
+            <div className="form-control w-full max-w-xs">
+                <label className="label">
+                    <span className="label-text font-medium text-lg">Email</span>
+                </label>
+                <input type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="email address" className="input input-bordered w-full max-w-xs" />
+            </div>
+            <div className="form-control w-full max-w-xs">
+                <label className="label">
+                    <span className="label-text font-medium text-lg">Subject</span>
+                </label>
+                <input type="text" value={subject} onChange={(e) => { setSubject(e.target.value) }} placeholder="subject name" className="input input-bordered w-full max-w-xs" />
+            </div>
+            <div className="form-control w-full max-w-xs">
+                <label className="label">
+                    <span className="label-text font-medium text-lg">Grade</span>
+                </label>
+                <input type="text" value={grade} onChange={(e) => { setGrade(e.target.value) }} placeholder="grade" className="input input-bordered w-full max-w-xs" />
+            </div>
+            <button type='submit' className={loading ? "btn loading w-[20rem]" : "btn w-[20rem]"}>Add Student</button>
+
+        </form>
+    )
+}
+
+export default Home

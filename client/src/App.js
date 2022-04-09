@@ -10,6 +10,8 @@ import PoorGrades from './Components/PoorGrades';
 import LeastFirstChoiceSubject from './Components/LeastFirstChoiceSubject';
 import SearchTeacher from './Components/SearchTeacher';
 import MathSecondSubject from './Components/MathSecondSubject';
+import AddTeacher from './Components/AddTeacher';
+import AddStudent from './Components/AddStudent';
 
 
 class App extends Component {
@@ -28,6 +30,8 @@ class App extends Component {
               <Route exact path='/leastFirstChoiceSubject' element={<LeastFirstChoiceSubject />}></Route>
               <Route exact path='/searchTeacher' element={<SearchTeacher />}></Route>
               <Route exact path='/mathSecondSubject' element={<MathSecondSubject />}></Route>
+              <Route exact path='/addTeacher' element={<AddTeacher />}></Route>
+              <Route exact path='/addStudent' element={<AddStudent />}></Route>
             </Routes>
           </div>
         </div>

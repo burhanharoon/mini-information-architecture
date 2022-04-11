@@ -4,6 +4,7 @@ const router = express.Router()
 
 const sortDesending = object => Object.keys(object).sort(function (a, b) { return object[b] - object[a] })
 
+/* returns: How many students are taking each subject */
 router.get('/count', async (req, res) => {
     const students = await Student.find({})
     let subjects = {}
@@ -19,6 +20,7 @@ router.get('/count', async (req, res) => {
     res.send(subjects)
 })
 
+/* returns: Three most popular EE subjects */
 router.get('/popularSubjects', async (req, res) => {
     const students = await Student.find({})
     let subjects = {}
@@ -34,6 +36,7 @@ router.get('/popularSubjects', async (req, res) => {
     res.send(popularSubjects.slice(0, 3))
 })
 
+/* returns: List of students having D or F grade in a subject */
 router.get('/poorGrades', async (req, res) => {
     const students = await Student.find({})
     let poorGrades = []
@@ -49,6 +52,7 @@ router.get('/poorGrades', async (req, res) => {
     res.send(poorGrades)
 })
 
+/* returns: List of all students */
 router.get("/allStudents", async (req, res) => {
     const students = await Student.find({})
     res.send(students)

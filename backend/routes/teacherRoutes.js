@@ -2,8 +2,8 @@ import express from 'express'
 import Teacher from '../models/teacherModel.js'
 const router = express.Router()
 
-const sortDesending = object => Object.keys(object).sort(function (a, b) { return object[b] - object[a] })
 
+/* returns: List of EE subjects with the fewest teachers as their 1st choice */
 router.get('/leastFirstChoiceSubject', async (req, res) => {
     const teachers = await Teacher.find({})
     let subjectChoicesCount = {}
@@ -20,6 +20,8 @@ router.get('/leastFirstChoiceSubject', async (req, res) => {
     res.send(subjectChoicesCount)
 })
 
+
+/* returns: Search for a student */
 router.get('/search/:name', async (req, res) => {
     let name = req.params.name
     const teachers = await Teacher.find({ name })
@@ -27,6 +29,8 @@ router.get('/search/:name', async (req, res) => {
     res.send(teachers)
 })
 
+
+/* returns: List all teachers who have selected Math as their 2nd choice */
 router.get('/mathSecondSubject', async (req, res) => {
 
     let mathSubjectTeachers = []
@@ -39,6 +43,8 @@ router.get('/mathSecondSubject', async (req, res) => {
     res.send(mathSubjectTeachers)
 })
 
+
+/* returns: Adds a new teacher to DB */
 router.post('/addTeacher', async (req, res) => {
 
     const { name, email, firstChoice, secondChoice } = req.body
@@ -56,6 +62,8 @@ router.post('/addTeacher', async (req, res) => {
     }
 })
 
+
+/* returns: List of all teachers */
 router.get("/allTeachers", async (req, res) => {
     const teachers = await Teacher.find({})
     res.send(teachers)

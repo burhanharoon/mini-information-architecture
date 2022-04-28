@@ -31,10 +31,9 @@ const importData = async () => {
 
 const destroyData = async () => {
     try {
-        // await Student.deleteMany()
-        // await Teacher.deleteMany()
+        await Student.deleteMany()
+        await Teacher.deleteMany()
         await SubjectAssignment.deleteMany()
-        await SubjectAssignment.insertMany(assignments)
 
         console.log('Data Destroyed!')
         process.exit()

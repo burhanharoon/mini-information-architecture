@@ -28,11 +28,11 @@ const assignments = [
         subject: "computer science",
     },
     {
-        studentName: "peter",
+        studentName: "holy",
         subject: "computer science",
     },
     {
-        studentName: "sanvii",
+        studentName: "knee",
         subject: "chemistry",
     },
     {
@@ -44,7 +44,7 @@ const assignments = [
         subject: "physics",
     },
     {
-        studentName: "hamza",
+        studentName: "last",
         subject: "biology",
     },
 
